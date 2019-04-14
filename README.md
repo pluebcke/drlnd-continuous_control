@@ -2,7 +2,7 @@
 My implementation of the Continuos Control Project in the scope of Udacity's Deep Reinforcement Learning Nanodegree
 
 The task was to train a robotic arm to move into a target area using the PyTorch package (https://pytorch.org/).
-A description of the results can be found in the continuos_control_project.ipynb jupyter notebook.
+A description of the results can be found in the Project_Description.ipynb jupyter notebook.
 
 # Installation
 In order to run the training script you'll need a a working Python environment with a couple of different non-standard libraries.
