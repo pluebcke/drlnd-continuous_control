@@ -46,7 +46,7 @@ agent.set_action_noise(0.0)
 
 for _ in range(number_episodes):
     for _ in range(max_time):
-        reward, _ = agent.take_step()
-        time.sleep(0.003)
+        reward, _ = agent.take_step(train_mode=False)
+        time.sleep(0.001)
 
 env.close()
