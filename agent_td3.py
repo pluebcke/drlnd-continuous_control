@@ -38,7 +38,6 @@ class T3DAgent:
 
         # Save some of the settings into class member variables
         self.pretrain_steps = settings['pretrain_steps']
-        self.number_steps = settings['number_steps']
         self.gamma = settings['gamma']
         self.tau = settings['tau']
 
@@ -84,7 +83,7 @@ class T3DAgent:
             if np.any(dones):
                 env_info = env.reset(train_mode=True)[brain_name]
 
-    def play_episode(self):
+    def play_episode(self, train_mode = True):
         # The idea of generating episodes in an "experience generator" is from
         # "Deep Reinforcement Learning Hands-On" by Maxim Lapan
 
@@ -92,7 +91,7 @@ class T3DAgent:
         # Initialize the environment
         env = self.env
         brain_name = self.brain_name
-        env_info = env.reset(train_mode=True)[brain_name]
+        env_info = env.reset(train_mode=train_mode)[brain_name]
         # Initialize episode_rewards and get the first state
         episode_rewards = []
         # Run episode step by step
@@ -122,8 +121,8 @@ class T3DAgent:
             else:
                 yield -1, -1
 
-    def take_step(self):
-        return next(self.generator)
+    def take_step(self, train_mode = True):
+        return next(self.generator, train_mode)
 
     def learn(self):
         self.number_steps += 1
